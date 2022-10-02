@@ -19,8 +19,10 @@ function generatePassword() {
 
   if (special === "y") var count = select.push("`~!@#$%^&*()-_=+[{]}|;:',<.>/?");
 
-  
-  console.log("bacon");
+  var size = Number(window.prompt("Enter the size of your password. You may choose from 8 to 128"));
+
+
+  console.log(size);
   console.log(count);
   console.log(select[0]);
   console.log(select[0][0]);
