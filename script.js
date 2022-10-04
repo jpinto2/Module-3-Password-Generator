@@ -7,24 +7,31 @@ function generatePassword() {
   var randI;
   var randJ;
   
-  var lower = window.prompt(" Do you want to include lowercase letters? If so, enter y");
+  do {
+    var lower = window.prompt(" Do you want to include lowercase letters? If so, enter y");
 
-  if (lower === "y") select.push("abcdefghijklmnopqrstuvwxyz");
+    if (lower === "y") select.push("abcdefghijklmnopqrstuvwxyz");
 
-  var upper = window.prompt("Do you want to include uppercase letters? If so, enter y");
+    var upper = window.prompt("Do you want to include uppercase letters? If so, enter y");
 
-  if (upper === "y") select.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    if (upper === "y") select.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-  var numbers = window.prompt("Do you want to include numbers? If so, enter y");
+    var numbers = window.prompt("Do you want to include numbers? If so, enter y");
 
-  if (numbers === "y") select.push("1234567890");
+      if (numbers === "y") select.push("1234567890");
 
-  var special = window.prompt("Do you want to include special characters? If so, enter y");
+    var special = window.prompt("Do you want to include special characters? If so, enter y");
 
-  if (special === "y") select.push("`~!@#$%^&*()-_=+[{]}|;:',<.>/?");
+    if (special === "y") select.push("`~!@#$%^&*()-_=+[{]}|;:',<.>/?");
 
-  var size = Number(window.prompt("Enter the size of your password. You may choose from 8 to 128"));
-  
+  } while(select.length === 0);
+
+  do {
+
+    var size = Number(window.prompt("Enter the size of your password. You may choose from 8 to 128"));
+
+  } while(typeof size != "number" || size < 8 || size > 128);
+
   for(i=0; i<select.length; i++) {
     randJ = Math.floor(Math.random() * select[i].length);
     password += select[i][randJ];
