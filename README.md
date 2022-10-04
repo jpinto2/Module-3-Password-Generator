@@ -17,7 +17,7 @@ Using chrome as the browser for the web page, right click on it and click inspec
 
 This is an image of the deployed website:
 
-![alt expected website]()
+![alt expected website](https://github.com/jpinto2/Module-3-Password-Generator/blob/main/website.png)
 
 ## Credits
 
