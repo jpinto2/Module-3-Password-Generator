@@ -2,6 +2,10 @@
 function generatePassword() {
 
   var select = [];
+  var password = [];
+  var count, i;
+  var randI;
+  var randJ;
   
   var lower = window.prompt(" Do you want to include lowercase letters? If so, enter y");
 
@@ -17,17 +21,22 @@ function generatePassword() {
 
   var special = window.prompt("Do you want to include special characters? If so, enter y");
 
-  if (special === "y") var count = select.push("`~!@#$%^&*()-_=+[{]}|;:',<.>/?");
+  if (special === "y") count = select.push("`~!@#$%^&*()-_=+[{]}|;:',<.>/?");
 
   var size = Number(window.prompt("Enter the size of your password. You may choose from 8 to 128"));
+  
+  for(i=0; i<count; i++) {
+    randJ = Math.floor(Math.random() * select[i].length);
+    password += select[i][randJ];
+  }
 
+  for(i=count; i<size; i++) {
+    randI = Math.floor(Math.random() * count);
+    randJ = Math.floor(Math.random() * select[randI].length);
+    password += select[randI][randJ];
+  }
 
-  console.log(size);
-  console.log(count);
-  console.log(select[0]);
-  console.log(select[0][0]);
-
-  return select[0];
+  return password;
 
 }
 
